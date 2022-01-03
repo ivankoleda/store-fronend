@@ -17,14 +17,16 @@ pipeline {
         sh 'npm run lint'
       }
     }
+
     stage('deploy') {
       when {
-          branch 'main'
+        branch 'main'
       }
       steps {
-          sh 'docker build . -t store-fronend'
-          sh 'docker run -p 3000:3000 store-fronend'
+        sh 'docker build . -t store-fronend'
+        sh 'docker run -p 3000:3000 store-fronend'
       }
     }
+
   }
 }

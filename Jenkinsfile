@@ -19,6 +19,12 @@ pipeline {
     }
 
     stage('deploy') {
+      agent {
+        docker {
+          image 'docker:20'
+        }
+
+      }
       when {
         branch 'main'
       }
